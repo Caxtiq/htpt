@@ -1,0 +1,80 @@
+version: '3.8'
+
+services:
+  node1:
+    build: .
+    container_name: kv_node_1
+    environment:
+      - NODE_ID=1
+      - PORT=8001
+      - PEERS=node2:8002,node3:8003
+    volumes:
+      - ./data/node1:/data
+    networks:
+      - kv_network
+
+  node2:
+    build: .
+    container_name: kv_node_2
+    environment:
+      - NODE_ID=2
+      - PORT=8002
+      - PEERS=node1:8001,node3:8003
+    volumes:
+      - ./data/node2:/data
+    networks:
+      - kv_network
+
+  node3:
+    build: .
+    container_name: kv_node_3
+    environment:
+      - NODE_ID=3
+      - PORT=8003
+      - PEERS=node1:8001,node2:8002
+    volumes:
+      - ./data/node3:/data
+    networks:
+      - kv_network
+
+  proxy:
+    image: python:3.9-slim
+    container_name: kv_proxy
+    volumes:
+      - ./proxy.py:/app/proxy.py
+      - ./data/proxy:/data
+    command: python -u /app/proxy.py
+    ports:
+      - "8000:8000"
+    networks:
+      - kv_network
+    depends_on:
+      - node1
+      - node2
+      - node3
+
+  monitor:
+    build: ./monitor
+    container_name: kv_monitor
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./data/proxy:/data
+    networks:
+      - kv_network
+    depends_on:
+      - proxy
+
+  frontend:
+    build: ./frontend
+    container_name: kv_frontend
+    ports:
+      - "3000:3000"
+    networks:
+      - kv_network
+    depends_on:
+      - monitor
+
+networks:
+  kv_network:
+    driver: bridge

@@ -1,0 +1,30 @@
+2026-06-08 18:41:27,451 | SRC:172.20.0.1 | TARGET:node1 | PAYLOAD: PUT course Distributed Systems
+2026-06-08 18:41:27,457 | SRC:172.20.0.1 | TARGET:node2 | PAYLOAD: PUT university HUST
+2026-06-08 18:41:27,463 | SRC:172.20.0.1 | TARGET:node3 | PAYLOAD: GET course
+2026-06-08 18:41:28,466 | SRC:172.20.0.1 | TARGET:node1 | PAYLOAD: PUT hacked_key <script>alert('XSS')</script>
+2026-06-08 18:41:28,471 | SRC:172.20.0.1 | TARGET:node2 | PAYLOAD: PUT sql_injection DROP TABLE users;
+2026-06-08 18:41:28,476 | SRC:172.20.0.1 | TARGET:node3 | PAYLOAD: PUT path_trav ../../../etc/passwd
+2026-06-08 18:41:53,634 | SRC:172.20.0.1 | TARGET:node1 | PAYLOAD: PUT course Distributed Systems
+2026-06-08 18:41:53,639 | SRC:172.20.0.1 | TARGET:node2 | PAYLOAD: PUT university HUST
+2026-06-08 18:41:53,645 | SRC:172.20.0.1 | TARGET:node3 | PAYLOAD: GET course
+2026-06-08 18:41:54,648 | SRC:172.20.0.1 | TARGET:node1 | PAYLOAD: PUT hacked_key <script>alert('XSS')</script>
+2026-06-08 18:41:54,653 | SRC:172.20.0.1 | TARGET:node2 | PAYLOAD: PUT sql_injection DROP TABLE users;
+2026-06-08 18:41:54,659 | SRC:172.20.0.1 | TARGET:node3 | PAYLOAD: PUT path_trav ../../../etc/passwd
+2026-06-08 18:41:59,938 | SRC:172.20.0.1 | TARGET:node1 | PAYLOAD: PUT course Distributed Systems
+2026-06-08 18:41:59,942 | SRC:172.20.0.1 | TARGET:node2 | PAYLOAD: PUT university HUST
+2026-06-08 18:41:59,947 | SRC:172.20.0.1 | TARGET:node3 | PAYLOAD: GET course
+2026-06-08 18:42:00,950 | SRC:172.20.0.1 | TARGET:node1 | PAYLOAD: PUT hacked_key <script>alert('XSS')</script>
+2026-06-08 18:42:00,955 | SRC:172.20.0.1 | TARGET:node2 | PAYLOAD: PUT sql_injection DROP TABLE users;
+2026-06-08 18:42:00,961 | SRC:172.20.0.1 | TARGET:node3 | PAYLOAD: PUT path_trav ../../../etc/passwd
+2026-06-08 18:59:57,529 | SRC:172.20.0.1 | TARGET:node1 | PAYLOAD: PUT course Distributed Systems
+2026-06-08 18:59:57,534 | SRC:172.20.0.1 | TARGET:node2 | PAYLOAD: PUT university HUST
+2026-06-08 18:59:57,540 | SRC:172.20.0.1 | TARGET:node3 | PAYLOAD: GET course
+2026-06-08 18:59:58,544 | SRC:172.20.0.1 | TARGET:node1 | PAYLOAD: PUT hacked_key <script>alert('XSS')</script>
+2026-06-08 18:59:58,548 | SRC:172.20.0.1 | TARGET:node2 | PAYLOAD: PUT sql_injection DROP TABLE users;
+2026-06-08 18:59:58,553 | SRC:172.20.0.1 | TARGET:node3 | PAYLOAD: PUT path_trav ../../../etc/passwd
+2026-06-08 19:01:31,818 | SRC:172.20.0.1 | TARGET:node1 | PAYLOAD: PUT course Distributed Systems
+2026-06-08 19:01:31,824 | SRC:172.20.0.1 | TARGET:node2 | PAYLOAD: PUT university HUST
+2026-06-08 19:01:31,830 | SRC:172.20.0.1 | TARGET:node3 | PAYLOAD: GET course
+2026-06-08 19:01:32,833 | SRC:172.20.0.1 | TARGET:node1 | PAYLOAD: PUT hacked_key <script>alert('XSS')</script>
+2026-06-08 19:01:32,838 | SRC:172.20.0.1 | TARGET:node2 | PAYLOAD: PUT sql_injection DROP TABLE users;
+2026-06-08 19:01:32,844 | SRC:172.20.0.1 | TARGET:node3 | PAYLOAD: PUT path_trav ../../../etc/passwd

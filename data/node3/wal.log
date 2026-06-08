@@ -1,0 +1,25 @@
+PUT course Distributed Systems
+PUT university HUST
+PUT hacked_key <script>alert('XSS')</script>
+PUT sql_injection DROP TABLE users;
+PUT path_trav ../../../etc/passwd
+PUT course Distributed Systems
+PUT university HUST
+PUT hacked_key <script>alert('XSS')</script>
+PUT sql_injection DROP TABLE users;
+PUT path_trav ../../../etc/passwd
+PUT course Distributed Systems
+PUT university HUST
+PUT hacked_key <script>alert('XSS')</script>
+PUT sql_injection DROP TABLE users;
+PUT path_trav ../../../etc/passwd
+PUT course Distributed Systems
+PUT university HUST
+PUT hacked_key <script>alert('XSS')</script>
+PUT sql_injection DROP TABLE users;
+PUT path_trav ../../../etc/passwd
+PUT course Distributed Systems
+PUT university HUST
+PUT hacked_key <script>alert('XSS')</script>
+PUT sql_injection DROP TABLE users;
+PUT path_trav ../../../etc/passwd

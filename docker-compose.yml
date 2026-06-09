@@ -10,6 +10,8 @@ services:
       - PEERS=node2:8002,node3:8003
     volumes:
       - ./data/node1:/data
+    ports:
+      - "8001:8001"
     networks:
       - kv_network
 
@@ -22,6 +24,8 @@ services:
       - PEERS=node1:8001,node3:8003
     volumes:
       - ./data/node2:/data
+    ports:
+      - "8002:8002"
     networks:
       - kv_network
 
@@ -34,6 +38,8 @@ services:
       - PEERS=node1:8001,node2:8002
     volumes:
       - ./data/node3:/data
+    ports:
+      - "8003:8003"
     networks:
       - kv_network
 

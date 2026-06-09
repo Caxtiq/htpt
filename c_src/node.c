@@ -288,6 +288,23 @@ void *client_handler(void *arg) {
             pthread_mutex_unlock(&store_mutex);
             send(client_sock, "END_SYNC\n", 9, 0);
         }
+        else if (strcmp(cmd, "DUMP") == 0) {
+            pthread_mutex_lock(&store_mutex);
+            kv_entry_t *curr = store_head;
+            int count = 0;
+            send(client_sock, "=== DATABASE DUMP ===\n", 22, 0);
+            while (curr != NULL) {
+                char line[BUFFER_SIZE];
+                snprintf(line, sizeof(line), "  %s -> %s\n", curr->key, curr->value);
+                send(client_sock, line, strlen(line), 0);
+                curr = curr->next;
+                count++;
+            }
+            pthread_mutex_unlock(&store_mutex);
+            char end_line[64];
+            snprintf(end_line, sizeof(end_line), "=== %d KEYS TOTAL ===\n", count);
+            send(client_sock, end_line, strlen(end_line), 0);
+        }
         else {
             send(client_sock, "ERROR_BAD_COMMAND\n", 18, 0);
         }

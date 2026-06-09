@@ -16,32 +16,25 @@ def send_tcp(message):
     except Exception as e:
         return f"ERROR: {e}"
 
-def put(key, value):
-    print(f"\n=> Sending PUT {key}='{value}' to PROXY")
-    resp = send_tcp(f"PUT {key} {value}\n")
-    print(f"Response: {resp}")
-
-def get(key):
-    print(f"\n=> Sending GET key '{key}' to PROXY")
-    resp = send_tcp(f"GET {key}\n")
-    print(f"Response: {resp}")
-
 if __name__ == "__main__":
-    print("=== STARTING TEST WITH TCP PROXY LOAD BALANCER ===")
+    print("=== INTERACTIVE CLIENT SIMULATOR ===")
+    print("Commands supported by Cluster:")
+    print("  PUT <key> <value>")
+    print("  GET <key>")
+    print("  DEL <key>")
+    print("  exit")
+    print("====================================")
     
-    put("course", "Distributed Systems")
-    put("university", "owo")
-    get("course")
-    
-    print("\n=======================================================")
-    print("SECURITY DEMO (WAF/IDS TRIGGER):")
-    print("Sending malicious payloads to test the Security Scanner...")
-    time.sleep(1)
-    
-    put("hacked_key", "<script>alert('XSS')</script>")
-    put("sql_injection", "DROP TABLE users;")
-    put("path_trav", "../../../etc/passwd")
-    
-    print("\n[+] Check the Docker logs of 'kv_security_scanner' to see the ALERTS!")
-    print("Command: docker logs -f kv_security_scanner")
-    print("=======================================================")
+    while True:
+        try:
+            cmd = input("\nKV-Shell> ").strip()
+            if cmd.lower() in ['exit', 'quit']:
+                break
+            if not cmd:
+                continue
+                
+            resp = send_tcp(cmd + "\n")
+            print(f"Cluster Response: {resp}")
+        except KeyboardInterrupt:
+            print("\nExiting...")
+            break

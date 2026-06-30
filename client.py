@@ -10,9 +10,17 @@ def send_tcp(message):
         s.settimeout(2)
         s.connect((PROXY_HOST, PROXY_PORT))
         s.sendall(message.encode())
-        data = s.recv(1024)
+        
+        # Read all chunks until the server closes the connection
+        chunks = []
+        while True:
+            chunk = s.recv(4096)
+            if not chunk:
+                break
+            chunks.append(chunk.decode(errors='ignore'))
+            
         s.close()
-        return data.decode().strip()
+        return "".join(chunks).strip()
     except Exception as e:
         return f"ERROR: {e}"
 
